@@ -1,0 +1,65 @@
+
+<h2 mat-dialog-title>Install Angular</h2>
+<form [formGroup]="CreateAddressForm">
+<mat-dialog-content class="mat-typography">
+ 
+  <div class="form-group">
+    <label>fullName</label>
+    <input type="text" formControlName="fullName"  class="form-control">
+  </div>
+  <div class="form-group">
+    <label>password</label>
+    <input type="text" formControlName="password" name="password"class="form-control">
+  </div>
+  
+  <div class="form-group">
+    <label>Job</label>
+    
+    <select *ngFor="let job of Jobs" formControlName="jobId" name="jobId"class="form-control">
+          <option [value]="-1" selected>select</option>
+           <option [value]="job.id">{{job.name}}</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label>Department</label>
+   
+    <select *ngFor="let Department of Departments" formControlName="departmentId" name="departmentId" class="form-control">
+      <option [value]="-1" selected>select</option>
+       <option [value]="Department.id">{{Department.name}}</option>
+</select>
+  </div>
+  <div class="form-group">
+    <label>mobileNumber</label>
+    <input type="text" formControlName="mobileNumber" name="mobileNumber" class="form-control">
+  </div>
+  <div class="form-group">
+    <label>dateOfBirth</label>
+    <input type="date" formControlName="dateOfBirth" name="dateOfBirth" class="form-control">
+  </div>
+  <div class="form-group">
+    <label>address</label>
+    <input type="text" formControlName="address" name="address" class="form-control">
+  </div>
+  <div class="form-group">
+    <label>email</label>
+    <input type="email" formControlName="email" name="email" class="form-control">
+  </div>
+  <div class="form-group">
+    <label>photo</label>
+    <input type="photo" formControlName="photo" name="photo" class="form-control">
+  </div>
+  <div class="form-group">
+    <label>age</label>
+    <input type="age" formControlName="age" name="age" class="form-control">
+  </div>
+  <div class="form-group">
+    <label>Image</label>
+    <input type="file" (change)="handleFileInput($event)">
+  </div>
+ 
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button [mat-dialog-close]="true" (click)="submit()" cdkFocusInitial>save</button>
+</mat-dialog-actions>
+</form>
